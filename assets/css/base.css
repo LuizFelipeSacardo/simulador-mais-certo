@@ -1,0 +1,17 @@
+:root{
+  --background-color-01: rgb(220, 220, 220);
+  --background-color-02: rgb(50, 50, 50);
+  --background-color-03: rgb(10,10,10);
+  --background-color-04: rgb(34, 87, 34);
+
+  --text-color-01: rgb(220,220,220);
+  --text-color-02: rgb(10,10,10);
+  --text-color-03: rgb(50, 148, 50);
+  --text-color-04: rgb(230, 29, 29);
+
+
+  --contrast-color-01: rgba(235, 48, 48, 0.781);
+
+  --color-hide: rgb(230, 29, 29);
+  --color-show: rgb(57, 155, 57);
+}

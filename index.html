@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <title>Simulador | Mais Certo</title>
+
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="header__title">Simulador Mais Certo</h1>
+    <nav class="header__nav">
+      <p class="header__info">Exibir/Ocultar blocos</p>
+      <ul class="nav__ul">
+        <li class="nav__li">Mês 1
+          <div class="nav__links">
+            <a href="#" class="nav__link-plus">&#43</a>
+            <a href="#" class="nav__link-minus">&#8722</a>
+          </div>
+        </li>
+        <li class="nav__li">Mês 2
+          <div class="nav__links">
+            <a href="#" class="nav__link-plus">&#43</a>
+            <a href="#" class="nav__link-minus">&#8722</a>
+          </div>
+        </li>
+        <li class="nav__li">Mês 3
+          <div class="nav__links">
+            <a href="#" class="nav__link-plus">&#43</a>
+            <a href="#" class="nav__link-minus">&#8722</a>
+          </div>
+        </li>
+        <li class="nav__li">Mês 4
+          <div class="nav__links">
+            <a href="#" class="nav__link-plus">&#43</a>
+            <a href="#" class="nav__link-minus">&#8722</a>
+          </div>
+        </li>
+        <li class="nav__li">Mês 5
+          <div class="nav__links">
+            <a href="#" class="nav__link-plus">&#43</a>
+            <a href="#" class="nav__link-minus">&#8722</a>
+          </div>
+        </li>
+        <li class="nav__li">Mês 6
+          <div class="nav__links">
+            <a href="#" class="nav__link-plus">&#43</a>
+            <a href="#" class="nav__link-minus">&#8722</a>
+          </div>
+        </li>
+      </ul>
+    </nav>  
+    <form class="header__form">
+      <label class="header__label">Escolha uma simulação salva:
+        <select name="" id="header__select" class="header__select">
+          <option value="Simulacao01">Sumulação 01</option>
+          <option value="Simulacao02">Sumulação 02</option>
+          <option value="Simulacao03">Sumulação 03</option>
+          <option value="Simulacao04">Sumulação 04</option>
+        </select>
+      </label>
+    </form>
+  </header>
+
+  <main>
+    <h2 class="input__title">Faça Sua Simulação Abaixo:</h2>
+    <section class="input">
+      
+      <article class="card">        
+        <h3 class="card-header__title">Mês 1</h3>        
+        <h4 class="card-header__name">Nome da Linha</h4>
+        <h4 class="card-header__goal">Meta</h4>
+        <h4 class="card-header__done">Realizado</h4>
+        <h4 class="card-header__done-percentage">% Real.</h4>          
+        
+        <span class="card-body__name">Base Vinculados</span>
+        <input class="card-body__goal" type="number" value="0">
+        <input class="card-body__done" type="number" value="0">
+        <span class="card-body__done-percentage" id="doneOutputM1G1"></span>
+
+        <span class="card-body__name">Base Ativa</span>
+        <input class="card-body__goal" type="number" value="1">
+        <input class="card-body__done" type="number" value="1">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">MOL</span>
+        <input class="card-body__goal" type="number" value="2">
+        <input class="card-body__done" type="number" value="1">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">MBB</span>
+        <input class="card-body__goal" type="number" value="3">
+        <input class="card-body__done" type="number" value="3">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Comissões</span>
+        <input class="card-body__goal" type="number" value="4">
+        <input class="card-body__done" type="number" value="4">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Cart. Emprestimos</span>
+        <input class="card-body__goal" type="number" value="5">
+        <input class="card-body__done" type="number" value="5">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Faturamento ADQ</span>
+        <input class="card-body__goal" type="number" value="6">
+        <input class="card-body__done" type="number" value="6">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Outro nome</span>
+        <input class="card-body__goal" type="number" value="7">
+        <input class="card-body__done" type="number" value="7">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Meta xxxx</span>
+        <input class="card-body__goal" type="number" value="8">
+        <input class="card-body__done" type="number" value="16">
+        <span class="card-body__done-percentage"></span>
+
+        <p class="card-footer">Linhas atingidas neste mês: <span class="card-footer__lines-done">6 linhas</span></p>
+              
+      </article>
+
+      <article class="card">        
+        <h3 class="card-header__title">Mês 2</h3>        
+        <h4 class="card-header__name">Nome</h4>
+        <h4 class="card-header__goal">Meta</h4>
+        <h4 class="card-header__done">Realizado</h4>
+        <h4 class="card-header__done-percentage">% Real.</h4>          
+        
+        <span class="card-body__name">Base Vinculados</span>
+        <input class="card-body__goal" type="number" value="9">
+        <input class="card-body__done" type="number" value="9">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Base Ativa</span>
+        <input class="card-body__goal" type="number" value="10">
+        <input class="card-body__done" type="number" value="10">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">MOL</span>
+        <input class="card-body__goal" type="number" value="11">
+        <input class="card-body__done" type="number" value="11">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">MBB</span>
+        <input class="card-body__goal" type="number" value="12">
+        <input class="card-body__done" type="number" value="12">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Comissões</span>
+        <input class="card-body__goal" type="number" value="13">
+        <input class="card-body__done" type="number" value="13">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Cart. Emprestimos</span>
+        <input class="card-body__goal" type="number" value="14">
+        <input class="card-body__done" type="number" value="14">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Faturamento ADQ</span>
+        <input class="card-body__goal" type="number" value="15">
+        <input class="card-body__done" type="number" value="15">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Outro nome</span>
+        <input class="card-body__goal" type="number" value="16">
+        <input class="card-body__done" type="number" value="16">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Meta xxxx</span>
+        <input class="card-body__goal" type="number" value="17">
+        <input class="card-body__done" type="number" value="17">
+        <span class="card-body__done-percentage"></span>
+
+        <p class="card-footer">Linhas atingidas neste mês: <span class="card-footer__lines-done">6 linhas</span></p>
+              
+      </article>
+
+      <article class="card">        
+        <h3 class="card-header__title">Mês 3</h3>        
+        <h4 class="card-header__name">Nome</h4>
+        <h4 class="card-header__goal">Meta</h4>
+        <h4 class="card-header__done">Realizado</h4>
+        <h4 class="card-header__done-percentage">% Real.</h4>          
+        
+        <span class="card-body__name">Base Vinculados</span>
+        <input class="card-body__goal" type="number" value="0">
+        <input class="card-body__done" type="number" value="0">
+        <span class="card-body__done-percentage" id="doneOutputM1G1"></span>
+
+        <span class="card-body__name">Base Ativa</span>
+        <input class="card-body__goal" type="number" value="1">
+        <input class="card-body__done" type="number" value="1">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">MOL</span>
+        <input class="card-body__goal" type="number" value="2">
+        <input class="card-body__done" type="number" value="1">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">MBB</span>
+        <input class="card-body__goal" type="number" value="3">
+        <input class="card-body__done" type="number" value="3">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Comissões</span>
+        <input class="card-body__goal" type="number" value="4">
+        <input class="card-body__done" type="number" value="4">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Cart. Emprestimos</span>
+        <input class="card-body__goal" type="number" value="5">
+        <input class="card-body__done" type="number" value="5">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Faturamento ADQ</span>
+        <input class="card-body__goal" type="number" value="6">
+        <input class="card-body__done" type="number" value="6">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Outro nome</span>
+        <input class="card-body__goal" type="number" value="7">
+        <input class="card-body__done" type="number" value="7">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Meta xxxx</span>
+        <input class="card-body__goal" type="number" value="8">
+        <input class="card-body__done" type="number" value="16">
+        <span class="card-body__done-percentage"></span>
+
+        <p class="card-footer">Linhas atingidas neste mês: <span class="card-footer__lines-done">6 linhas</span></p>
+              
+      </article>
+
+      <article class="card">        
+        <h3 class="card-header__title">Mês 4</h3>        
+        <h4 class="card-header__name">Nome</h4>
+        <h4 class="card-header__goal">Meta</h4>
+        <h4 class="card-header__done">Realizado</h4>
+        <h4 class="card-header__done-percentage">% Real.</h4>          
+        
+        <span class="card-body__name">Base Vinculados</span>
+        <input class="card-body__goal" type="number" value="0">
+        <input class="card-body__done" type="number" value="0">
+        <span class="card-body__done-percentage" id="doneOutputM1G1"></span>
+
+        <span class="card-body__name">Base Ativa</span>
+        <input class="card-body__goal" type="number" value="1">
+        <input class="card-body__done" type="number" value="1">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">MOL</span>
+        <input class="card-body__goal" type="number" value="2">
+        <input class="card-body__done" type="number" value="1">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">MBB</span>
+        <input class="card-body__goal" type="number" value="3">
+        <input class="card-body__done" type="number" value="3">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Comissões</span>
+        <input class="card-body__goal" type="number" value="4">
+        <input class="card-body__done" type="number" value="4">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Cart. Emprestimos</span>
+        <input class="card-body__goal" type="number" value="5">
+        <input class="card-body__done" type="number" value="5">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Faturamento ADQ</span>
+        <input class="card-body__goal" type="number" value="6">
+        <input class="card-body__done" type="number" value="6">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Outro nome</span>
+        <input class="card-body__goal" type="number" value="7">
+        <input class="card-body__done" type="number" value="7">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Meta xxxx</span>
+        <input class="card-body__goal" type="number" value="8">
+        <input class="card-body__done" type="number" value="16">
+        <span class="card-body__done-percentage"></span>
+
+        <p class="card-footer">Linhas atingidas neste mês: <span class="card-footer__lines-done">6 linhas</span></p>
+              
+      </article>
+
+      <article class="card">        
+        <h3 class="card-header__title">Mês 5</h3>        
+        <h4 class="card-header__name">Nome</h4>
+        <h4 class="card-header__goal">Meta</h4>
+        <h4 class="card-header__done">Realizado</h4>
+        <h4 class="card-header__done-percentage">% Real.</h4>          
+        
+        <span class="card-body__name">Base Vinculados</span>
+        <input class="card-body__goal" type="number" value="0">
+        <input class="card-body__done" type="number" value="0">
+        <span class="card-body__done-percentage" id="doneOutputM1G1"></span>
+
+        <span class="card-body__name">Base Ativa</span>
+        <input class="card-body__goal" type="number" value="1">
+        <input class="card-body__done" type="number" value="1">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">MOL</span>
+        <input class="card-body__goal" type="number" value="2">
+        <input class="card-body__done" type="number" value="1">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">MBB</span>
+        <input class="card-body__goal" type="number" value="3">
+        <input class="card-body__done" type="number" value="3">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Comissões</span>
+        <input class="card-body__goal" type="number" value="4">
+        <input class="card-body__done" type="number" value="4">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Cart. Emprestimos</span>
+        <input class="card-body__goal" type="number" value="5">
+        <input class="card-body__done" type="number" value="5">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Faturamento ADQ</span>
+        <input class="card-body__goal" type="number" value="6">
+        <input class="card-body__done" type="number" value="6">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Outro nome</span>
+        <input class="card-body__goal" type="number" value="7">
+        <input class="card-body__done" type="number" value="7">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Meta xxxx</span>
+        <input class="card-body__goal" type="number" value="8">
+        <input class="card-body__done" type="number" value="16">
+        <span class="card-body__done-percentage"></span>
+
+        <p class="card-footer">Linhas atingidas neste mês: <span class="card-footer__lines-done">6 linhas</span></p>
+              
+      </article>
+
+      <article class="card">        
+        <h3 class="card-header__title">Mês 6</h3>        
+        <h4 class="card-header__name">Nome</h4>
+        <h4 class="card-header__goal">Meta</h4>
+        <h4 class="card-header__done">Realizado</h4>
+        <h4 class="card-header__done-percentage">% Real.</h4>          
+        
+        <span class="card-body__name">Base Vinculados</span>
+        <input class="card-body__goal" type="number" value="0">
+        <input class="card-body__done" type="number" value="0">
+        <span class="card-body__done-percentage" id="doneOutputM1G1"></span>
+
+        <span class="card-body__name">Base Ativa</span>
+        <input class="card-body__goal" type="number" value="1">
+        <input class="card-body__done" type="number" value="1">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">MOL</span>
+        <input class="card-body__goal" type="number" value="2">
+        <input class="card-body__done" type="number" value="1">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">MBB</span>
+        <input class="card-body__goal" type="number" value="3">
+        <input class="card-body__done" type="number" value="3">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Comissões</span>
+        <input class="card-body__goal" type="number" value="4">
+        <input class="card-body__done" type="number" value="4">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Cart. Emprestimos</span>
+        <input class="card-body__goal" type="number" value="5">
+        <input class="card-body__done" type="number" value="5">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Faturamento ADQ</span>
+        <input class="card-body__goal" type="number" value="6">
+        <input class="card-body__done" type="number" value="6">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Outro nome</span>
+        <input class="card-body__goal" type="number" value="7">
+        <input class="card-body__done" type="number" value="7">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Meta xxxx</span>
+        <input class="card-body__goal" type="number" value="8">
+        <input class="card-body__done" type="number" value="16">
+        <span class="card-body__done-percentage"></span>
+
+        <p class="card-footer">Linhas atingidas neste mês: <span class="card-footer__lines-done">6 linhas</span></p>
+              
+      </article>
+
+      <article class="card">        
+        <h3 class="card-header__title">Total</h3>        
+        <h4 class="card-header__name">Nome</h4>
+        <h4 class="card-header__goal">Meta</h4>
+        <h4 class="card-header__done">Realizado</h4>
+        <h4 class="card-header__done-percentage">% Real.</h4>          
+        
+        <span class="card-body__name">Base Vinculados</span>
+        <input class="card-body__goal" type="number">
+        <input class="card-body__done" type="number">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Base Ativa</span>
+        <input class="card-body__goal" type="number">
+        <input class="card-body__done" type="number">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">MOL</span>
+        <input class="card-body__goal" type="number">
+        <input class="card-body__done" type="number">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">MBB</span>
+        <input class="card-body__goal" type="number">
+        <input class="card-body__done" type="number">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Comissões</span>
+        <input class="card-body__goal" type="number">
+        <input class="card-body__done" type="number">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Cart. Emprestimos</span>
+        <input class="card-body__goal" type="number">
+        <input class="card-body__done" type="number">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Faturamento ADQ</span>
+        <input class="card-body__goal" type="number">
+        <input class="card-body__done" type="number">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Outro nome</span>
+        <input class="card-body__goal" type="number">
+        <input class="card-body__done" type="number">
+        <span class="card-body__done-percentage"></span>
+
+        <span class="card-body__name">Meta xxxx</span>
+        <input class="card-body__goal" type="number">
+        <input class="card-body__done" type="number">
+        <span class="card-body__done-percentage"></span>
+
+        <p class="card-footer">Linhas atingidas neste mês: <span class="card-footer__lines-done">6 linhas</span></p>              
+      </article>
+
+      <article class="card card__boosts">        
+        <h3 class="card-header__title">Aceleradores/Redutores</h3>        
+        <p class="boosts__main-title">Selecione os % de cada acelerador/redutor:</p>
+        <form action="" class="boosts__form">
+          <label for="boosts__title">Exc:
+            <select name="" id="" class="boosts__options">
+              <option value="0.20">+20%</option>
+              <option value="0.10">+10%</option>
+              <option value="0">0%</option>
+              <option value="-0.10">-10%</option>
+              <option value="-0.20">-20%</option>
+            </select>
+          </label>
+          <label for="boosts__title">Exo:
+            <select name="" id="" class="boosts__options">              
+              <option value="0">0%</option>
+              <option value="-0.10">-10%</option>
+              <option value="-0.20">-20%</option>
+            </select>
+          </label>
+          <label for="boosts__title">Quantidade de meses no indice A:
+            <select name="" id="" class="boosts__options">
+              <option value="1">1-A</option>
+              <option value="2">2-A</option>
+              <option value="3">3-A</option>
+              <option value="4">4-A</option>
+              <option value="5">5-A</option>
+              <option value="6">6-A</option>
+            </select>
+          </label>
+        </form>              
+      </article>
+
+      <button class="button">Salvar e Simular</button>
+
+
+      <article class="card card__results">
+        <h3 class="card-header__title card-header__title-results">Resultado da Simulação</h3>  
+        <p class="results__main-title">Foram Atingidas <span>X</span> Linhas no Semestre</p> 
+        <article class="results__output">
+          <h4 class="results__output__title">Variável Semestral Simulada:</h4>  
+          <span class="results__value">R$ 500.000,00</span> 
+        </article>
+      </article>
+    </section>
+  </main>
+
+  
+</body>
+  <script src="assets/javascript/Month.js"></script>
+  <script src="assets/javascript/main.js"></script>
+</html>
