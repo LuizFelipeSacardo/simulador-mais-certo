@@ -4,9 +4,10 @@ const allAcomplishmentOutputs = document.querySelectorAll('.card-body__done-perc
 const allMonthsLinesDone = document.querySelectorAll('.card-footer__lines-done');
 
 const loadProfileButton = document.querySelector('#header__button');
-loadProfileButton.addEventListener('click', loadProfileName);
+loadProfileButton.addEventListener('click', populateFields);
 
 const calculateResults = document.querySelector('#input__button');
+const headerSelect = document.querySelector('#header__select');
 calculateResults.addEventListener('click', generateResults);
 
 const numberOfGoals = 9;
@@ -15,29 +16,86 @@ let allGoalsList = allGoals();
 let allAcomplishmentsList = allAcomplishments();
 
 
+// Profile management functions - LOading the profile
 function loadProfileName(){
   const profile = document.querySelector('#header__select').value;
   return profile;
 }
 
 
-
-function loadProfileData(profile){
+function loadProfileData(){
+  let allGoalsList = allGoals();
+  let allAcomplishmentsList = allAcomplishments();
   let profileName = loadProfileName();
   let data = [];
   
   data = JSON.parse(localStorage.getItem(profileName));
   if(data != null){
     allGoalsList.concat(data[0]);
-    allAcomplishmentsList.concat(data[1]);
-    console.log(allGoalsList)
-    console.log(allAcomplishmentsList);
+    allAcomplishmentsList.concat(data[1]);    
   }
+  if(data === null){
+    alert('Atenção, esta simulação está vazia, selecione uma simulação salva válida ou preencha os campos abaixo');
+    document.location.reload(true);
+  }
+  return data;
+}
+
+
+function populateFields(){ 
+  let data = loadProfileData();
+  let loadedGoals = data.acomplishments;
+  let loadedAcomplishments = data.acomplishments;
+
+  let cont = 0;
+  let goalsImput = document.querySelectorAll('.card-body__goal');
+  goalsImput.forEach(element => {
+    element.value = loadedGoals[cont];
+    cont++;  
+  }) 
+
+  let cont2 = 0;
+  let acomplishmentsInput = document.querySelectorAll('.card-body__done');
+  acomplishmentsInput.forEach(element => {
+    element.value = loadedAcomplishments[cont2];
+    cont2++;  
+  }) 
 }
 
 
 
+// Saving the profille
+function saveProfileData(){
+  const profile = loadProfileName();
 
+  const data = joinLists();
+  localStorage.setItem(profile, JSON.stringify(data))
+}
+
+
+function verifySave(){
+  
+}
+
+
+function joinLists(){
+  const goalPlusAcomplishment = {
+    acomplishments,
+    goals
+  }
+
+  let allGoalsList = allGoals();
+  let allAcomplishmentsList = allAcomplishments();
+
+  goalPlusAcomplishment.acomplishments = allAcomplishmentsList;
+  goalPlusAcomplishment.goals = allGoalsList;
+
+  return goalPlusAcomplishment;
+}
+
+
+
+//Capturing all input values and turning it into a array
 function allGoals(){
   const goals = document.querySelectorAll('.card-body__goal')
   const values = []
@@ -47,7 +105,6 @@ function allGoals(){
   });
   return values;
 }
-
 
 
 function allAcomplishments(){
@@ -62,30 +119,6 @@ function allAcomplishments(){
 
 
 
-function joinLists(){
-  const goalPlusAcomplishment = {
-    acomplishments,
-    goals
-  }
-
-  goalPlusAcomplishment.acomplishments = allAcomplishmentsList;
-  goalPlusAcomplishment.goals = allGoalsList;
-
-  return goalPlusAcomplishment;
-}
-
-
-
-
-function saveProfileData(){
-  const profile = loadProfileName();
-  const data = joinLists();
-  localStorage.setItem(profile, JSON.stringify(data))
-}
-
-
-
-
 function changeOutputColor(llAcomplishmentOutputs, acomplishmentPercentage){
   if(acomplishmentPercentage < 100){
     llAcomplishmentOutputs.classList.add('underTheGoal')
@@ -94,7 +127,6 @@ function changeOutputColor(llAcomplishmentOutputs, acomplishmentPercentage){
     llAcomplishmentOutputs.classList.add('overTheGoal')
   }
 }
-
 
 
 
@@ -172,7 +204,7 @@ function displayLinesDone(linesDoneList){
 
 function calculateTotals(acomplishments, goals, allAcomplishmentsList, allGoalsList){
   for(let i = 0; i < numberOfGoals; i++){
-    acomplishments[i+54].value = Number(allAcomplishmentsList[i]) + Number(allAcomplishmentsList[i+9]) + Number(allAcomplishmentsList[i+18]) + Number(allAcomplishmentsList[i+27])+ Number(allAcomplishmentsList[i+36]) + Number(allAcomplishmentsList[i+45])+ Number(allAcomplishmentsList[i+54]);
+    acomplishments[i+54].value = Number(allAcomplishmentsList[i]) + Number(allAcomplishmentsList[i+9]) + Number(allAcomplishmentsList[i+18]) + Number(allAcomplishmentsList[i+27])+ Number(allAcomplishmentsList[i+36]) + Number(allAcomplishmentsList[i+45]) + Number(allAcomplishmentsList[i+54]);
   }
   for(let i = 0; i < numberOfGoals; i++){
     goals[i+54].value = Number(allGoalsList[i]) + Number(allGoalsList[i+9]) + Number(allGoalsList[i+18]) + Number(allGoalsList[i+27])+ Number(allGoalsList[i+36])+ Number(allGoalsList[i+45]) + Number(allGoalsList[i+54]);
@@ -197,46 +229,14 @@ function showMonthGoalsAcomplishments(numberOfGoals, allGoalsList, allAcomplishm
 
     allAcomplishmentOutputs[i].innerHTML = `${acomplishmentPercentage.toFixed(2)}%` 
 
-    changeOutputColor(allAcomplishmentOutputs[i], acomplishmentPercentage);
+    changeOutputColor(allAcomplishmentOutputs[i], acomplishmentPercentage);    
     }
   }
 }
 
 
-
-function calculateBoostsMultiplier(){
-  const exc = document.querySelector('#boosts__exc').value;
-  const exo = document.querySelector('#boosts__exo').value;
-  const index = document.querySelector('#boosts__index').value;
-
-  return 1 + Number(exc) + Number(exo) + (index * 3.3334 / 100);
-}
-
-
-
-function calculateLinesMultiplier(allGoalsListUpdated, allAcomplishmentsListUpdated){
-  let linesDoneList = calculateLinesDone(numberOfGoals, allGoalsListUpdated, allAcomplishmentsListUpdated);
-  let linesDoneFinal = linesDoneList[6];
-
-  if(linesDoneFinal < 3){
-    return 0;
-  } if(linesDoneFinal >= 3 && linesDoneFinal <= 4){
-    return 1;
-  } if(linesDoneFinal > 4 && linesDoneFinal <= 5){
-    return 2;
-  } if(linesDoneFinal > 5 && linesDoneFinal <= 6){
-    return 3;
-  } if(linesDoneFinal = 7){
-    return 3.5;
-  } if(linesDoneFinal > 7 && linesDoneFinal <= 9){
-    return 4;
-  }
-}
-
-
-
 function elegibleLines(numberOfGoals, allGoalsListUpdated, allAcomplishmentsListUpdated){
-  const targets = [1000, 2000, 3000, 1000, 2000, 3000, 1000, 5000, 3000];
+  const targets = [2550, 1020, 1020, 1020, 1020, 1020, 1020, 1020, 510];
   let elegibleLinesList  = [];
   
   for(let i = 0; i < numberOfGoals; i++){
@@ -251,6 +251,39 @@ function elegibleLines(numberOfGoals, allGoalsListUpdated, allAcomplishmentsList
 
 
 
+
+//calculating Multipliers and Boots
+function calculateLinesMultiplier(allGoalsListUpdated, allAcomplishmentsListUpdated){
+  let linesDoneList = calculateLinesDone(numberOfGoals, allGoalsListUpdated, allAcomplishmentsListUpdated);
+  let linesDoneFinal = linesDoneList[6];
+
+  if(linesDoneFinal < 3){
+    return 0;
+  } if(linesDoneFinal === 3){
+    return 1;
+  } if(linesDoneFinal === 4){
+    return 1.5;
+  } if(linesDoneFinal === 5){
+    return 2.5;
+  } if(linesDoneFinal === 6){
+    return 3;
+  } if(linesDoneFinal === 7){
+    return 3.5;
+  } if(linesDoneFinal >= 8){
+    return 4;
+  }
+}
+
+
+function calculateBoostsMultiplier(){
+  const exc = document.querySelector('#boosts__exc').value;
+  const exo = document.querySelector('#boosts__exo').value;
+  const index = document.querySelector('#boosts__index').value;
+
+  return 1 + Number(exc) + Number(exo) + (index * 3.3334 / 100);
+}
+
+
 function multiplyLines(elegibleLinesList, linesMultiplier){
   let multipliedLines = [];
 
@@ -261,7 +294,6 @@ function multiplyLines(elegibleLinesList, linesMultiplier){
 }
 
 
-
 function applyBootsAndSum(multipliedLines, boostsMultiplier){
   let total = multipliedLines.reduce(function(total, number){
     return total + number;
@@ -270,24 +302,37 @@ function applyBootsAndSum(multipliedLines, boostsMultiplier){
 }
 
 
+function saveAlert(){  
+  if(confirm(`Os dados serão salvos em "${headerSelect.value}", caso já existam dados salvos neste perfil, os mesmos serão sobreescritos. Deseja continuar?`)){
+    alert(`Simulação salva com sucesso em "${headerSelect.value}"`);
+    return true;
+  } else{
+    alert(`Se preferir, selecione outro perfil no topo de página para salvar esta simulação`)
+    return false;
+  }
+}
 
 
-function generateResults(){
-  saveProfileData();
-  calculateTotals(acomplishments, goals, allAcomplishmentsList, allGoalsList);
-  const allGoalsListUpdated = allGoals();
-  const allAcomplishmentsListUpdated = allAcomplishments();  
-  const linesDoneList = calculateLinesDone(numberOfGoals, allGoalsListUpdated, allAcomplishmentsListUpdated)
-  displayLinesDone(linesDoneList);
-  showMonthGoalsAcomplishments(numberOfGoals, allGoalsListUpdated, allAcomplishmentsListUpdated);
+//Main Function
+function generateResults(){ 
+  let alertAnswer = saveAlert();
+  if(alertAnswer){
+    calculateTotals(acomplishments, goals, allAcomplishmentsList, allGoalsList);
+    const allGoalsListUpdated = allGoals();
+    const allAcomplishmentsListUpdated = allAcomplishments();  
+    const linesDoneList = calculateLinesDone(numberOfGoals, allGoalsListUpdated, allAcomplishmentsListUpdated)
+    displayLinesDone(linesDoneList);
+    showMonthGoalsAcomplishments(numberOfGoals, allGoalsListUpdated, allAcomplishmentsListUpdated);
 
-  const linesMultiplier = calculateLinesMultiplier(allGoalsListUpdated, allAcomplishmentsListUpdated);
-  const boostsMultiplier = calculateBoostsMultiplier();
-  const elegibleLinesList = elegibleLines(numberOfGoals, allGoalsListUpdated, allAcomplishmentsListUpdated);
-  const multipliedLines = multiplyLines(elegibleLinesList, linesMultiplier);
-  const finalValue = applyBootsAndSum(multipliedLines, boostsMultiplier);
+    const linesMultiplier = calculateLinesMultiplier(allGoalsListUpdated, allAcomplishmentsListUpdated);
+    const boostsMultiplier = calculateBoostsMultiplier();
+    const elegibleLinesList = elegibleLines(numberOfGoals, allGoalsListUpdated, allAcomplishmentsListUpdated);
+    const multipliedLines = multiplyLines(elegibleLinesList, linesMultiplier);
+    const finalValue = applyBootsAndSum(multipliedLines, boostsMultiplier);
 
-  const finalValueOutput = document.querySelector('#results__value');
-  finalValueOutput.innerHTML = finalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    const finalValueOutput = document.querySelector('#results__value');
+    finalValueOutput.innerHTML = finalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 
+    saveProfileData();    
+  }
 }
