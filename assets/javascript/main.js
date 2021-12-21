@@ -2,6 +2,7 @@ const acomplishments = document.querySelectorAll('.card-body__done')
 const goals = document.querySelectorAll('.card-body__goal')
 const allAcomplishmentOutputs = document.querySelectorAll('.card-body__done-percentage');
 const allMonthsLinesDone = document.querySelectorAll('.card-footer__lines-done');
+const semesterLinesAcomplished = document.querySelector('#results__main-title-value')
 
 const loadProfileButton = document.querySelector('#header__button');
 loadProfileButton.addEventListener('click', populateFields);
@@ -44,7 +45,7 @@ function loadProfileData(){
 
 function populateFields(){ 
   let data = loadProfileData();
-  let loadedGoals = data.acomplishments;
+  let loadedGoals = data.goals;
   let loadedAcomplishments = data.acomplishments;
 
   let cont = 0;
@@ -198,26 +199,62 @@ function displayLinesDone(linesDoneList){
   for( let i = 0; i < 7; i++){
     allMonthsLinesDone[i].innerHTML = linesDoneList[i];
   }
+  semesterLinesAcomplished.innerHTML = linesDoneList[6]
 }
 
 
 
-function calculateTotals(acomplishments, goals, allAcomplishmentsList, allGoalsList){
-  for(let i = 0; i < numberOfGoals; i++){
-    acomplishments[i+54].value = Number(allAcomplishmentsList[i]) + Number(allAcomplishmentsList[i+9]) + Number(allAcomplishmentsList[i+18]) + Number(allAcomplishmentsList[i+27])+ Number(allAcomplishmentsList[i+36]) + Number(allAcomplishmentsList[i+45]) + Number(allAcomplishmentsList[i+54]);
+function calculateTotals(){
+  const acomplishments = document.querySelectorAll('.card-body__done')
+  const goals = document.querySelectorAll('.card-body__goal')
+  const allGoalsList = allGoals();
+  const allAcomplishmentsList = allAcomplishments();
+
+  console.log(allGoalsList, allAcomplishmentsList)
+
+  for(let i = 0; i < numberOfGoals; i++){    
+    acomplishments[i+54].value = Number(allAcomplishmentsList[i]) + Number(allAcomplishmentsList[i+9]) + Number(allAcomplishmentsList[i+18]) + Number(allAcomplishmentsList[i+27])+ Number(allAcomplishmentsList[i+36]) + Number(allAcomplishmentsList[i+45]);
   }
-  for(let i = 0; i < numberOfGoals; i++){
-    goals[i+54].value = Number(allGoalsList[i]) + Number(allGoalsList[i+9]) + Number(allGoalsList[i+18]) + Number(allGoalsList[i+27])+ Number(allGoalsList[i+36])+ Number(allGoalsList[i+45]) + Number(allGoalsList[i+54]);
+  for(let i = 0; i < numberOfGoals; i++){    
+    goals[i+54].value = Number(allGoalsList[i]) + Number(allGoalsList[i+9]) + Number(allGoalsList[i+18]) + Number(allGoalsList[i+27])+ Number(allGoalsList[i+36])+ Number(allGoalsList[i+45]);
+  }
+
+  calculateFinalLines(acomplishments, goals, allGoalsList, allAcomplishmentsList)
+}
+
+
+
+function calculateFinalLines(acomplishments, goals, allGoalsList, allAcomplishmentsList){
+
+  for(let i = 0; i<3; i++){
+    goals[i+57].value = allGoalsList[3]
+    }
+    if(goals[i+12] > 0){
+      goals[i+57].value = allGoalsList[i+12]
+    }
+    if(goals[i+21] > 0){
+      goals[i+57].value = allGoalsList[i+21]
+    }
+    if(goals[i+30] > 0){
+      goals[i+57].value = allGoalsList[i+30]
+    }
+    if(goals[i+39] > 0){
+      goals[i+57].value = allGoalsList[i+39]
+    }
+    if(goals[i+48] > 0){
+      goals[i+57].value = allGoalsList[i+48]
   }
 }
+
+
 
 
 function showMonthGoalsAcomplishments(numberOfGoals, allGoalsList, allAcomplishmentsList){
   const allAcomplishmentOutputs = document.querySelectorAll('.card-body__done-percentage');
 
   for(let i = 0; i < (numberOfGoals * 7); i++){
-
-  let acomplishmentPercentage = 0; 
+    let acomplishmentPercentage = 0; 
+    
     if(allAcomplishmentsList[i] === 0 || allGoalsList[i] === 0){
       acomplishmentPercentage = 0;
     } else{
@@ -227,9 +264,12 @@ function showMonthGoalsAcomplishments(numberOfGoals, allGoalsList, allAcomplishm
         acomplishmentPercentage = (allAcomplishmentsList[i]/allGoalsList[i])*100;
       }
 
-    allAcomplishmentOutputs[i].innerHTML = `${acomplishmentPercentage.toFixed(2)}%` 
-
-    changeOutputColor(allAcomplishmentOutputs[i], acomplishmentPercentage);    
+    if(acomplishmentPercentage){
+      allAcomplishmentOutputs[i].innerHTML = `${acomplishmentPercentage.toFixed(2)}%`   
+      changeOutputColor(allAcomplishmentOutputs[i], acomplishmentPercentage);   
+      } else{
+        allAcomplishmentOutputs[i].innerHTML = `-`
+      }
     }
   }
 }
@@ -317,7 +357,7 @@ function saveAlert(){
 function generateResults(){ 
   let alertAnswer = saveAlert();
   if(alertAnswer){
-    calculateTotals(acomplishments, goals, allAcomplishmentsList, allGoalsList);
+    calculateTotals();
     const allGoalsListUpdated = allGoals();
     const allAcomplishmentsListUpdated = allAcomplishments();  
     const linesDoneList = calculateLinesDone(numberOfGoals, allGoalsListUpdated, allAcomplishmentsListUpdated)
@@ -331,7 +371,7 @@ function generateResults(){
     const finalValue = applyBootsAndSum(multipliedLines, boostsMultiplier);
 
     const finalValueOutput = document.querySelector('#results__value');
-    finalValueOutput.innerHTML = finalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    finalValueOutput.innerHTML = finalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});   
 
     saveProfileData();    
   }
