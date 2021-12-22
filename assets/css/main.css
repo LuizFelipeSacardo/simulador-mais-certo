@@ -1,5 +1,5 @@
 .main{
-  max-width: 960px;
+  max-width: 840px;
   margin: auto;
   padding-bottom: 20px;
   background-color: var(--background-color-05);
@@ -31,6 +31,10 @@
   border-radius: 5px;
   background-color: var(--background-color-01);
   max-width: 400px;
+}
+
+.card-hide{
+  display: none;
 }
 
 .card__boosts, .card__results{
@@ -223,6 +227,10 @@
   .button{
     height: 60px;
     font-size: 2rem;
+  }
+
+  .results__main-title{
+    font-size: 1.5rem;
   }
 
   .button:hover{

@@ -1,7 +1,7 @@
 .header{
   background-color: var(--background-color-02); 
   padding-bottom: 1px;
-  max-width: 960px;
+  max-width: 840px;
   margin: auto;
   border-radius: 5px;
 }
@@ -49,15 +49,24 @@
   align-items: center;  
 }
 
+.nav__links{
+  padding: 0 10px;
+}
+
+.nav__links-hide{
+  display: none;
+}
+
 .nav__link-plus, .nav__link-minus{
+  list-style-type: none;
   text-decoration: none;
   color: var(--text-color-01); 
   color: var(--color-show);
-  font-size: 1.5rem;
-  font-weight: 600; 
+  font-size: 2rem;
+  font-weight: 800;
 }
 
-.nav__link-minus{
+.nav__link-minus{  
   color: var(--color-hide);
 }
 
@@ -102,6 +111,10 @@
     font-size: 3rem;
   }
 
+  .header__info{
+    font-size: 1.5rem;
+  }
+
   .header__label{
     font-size: 1.5rem;
   }
@@ -120,7 +133,7 @@
   }
 
   .nav__li{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .nav__link-minus, .nav__link-plus{    

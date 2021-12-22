@@ -22,3 +22,11 @@
   font-size: 1.2rem;
   font-weight: 900;
 }
+
+@media screen and (min-width:480px) {
+
+  .text-highlight{
+    font-size: 1.7rem;
+    font-weight: 1000;
+  }  
+}

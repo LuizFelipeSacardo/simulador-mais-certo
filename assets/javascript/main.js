@@ -210,42 +210,63 @@ function calculateTotals(){
   const allGoalsList = allGoals();
   const allAcomplishmentsList = allAcomplishments();
 
-  console.log(allGoalsList, allAcomplishmentsList)
-
   for(let i = 0; i < numberOfGoals; i++){    
     acomplishments[i+54].value = Number(allAcomplishmentsList[i]) + Number(allAcomplishmentsList[i+9]) + Number(allAcomplishmentsList[i+18]) + Number(allAcomplishmentsList[i+27])+ Number(allAcomplishmentsList[i+36]) + Number(allAcomplishmentsList[i+45]);
   }
   for(let i = 0; i < numberOfGoals; i++){    
     goals[i+54].value = Number(allGoalsList[i]) + Number(allGoalsList[i+9]) + Number(allGoalsList[i+18]) + Number(allGoalsList[i+27])+ Number(allGoalsList[i+36])+ Number(allGoalsList[i+45]);
   }
-
-  calculateFinalLines(acomplishments, goals, allGoalsList, allAcomplishmentsList)
 }
 
 
+function calculateFinalLines(){
+  const acomplishments = document.querySelectorAll('.card-body__done')
+  const goals = document.querySelectorAll('.card-body__goal')
+  const allGoalsList = allGoals();
+  const allAcomplishmentsList = allAcomplishments();
 
-function calculateFinalLines(acomplishments, goals, allGoalsList, allAcomplishmentsList){
-
-  for(let i = 0; i<3; i++){
-    goals[i+57].value = allGoalsList[3]
+  for(let i = 0; i < 3; i++){ 
+    if(goals[i+48]){
+      goals[i+57].value = allGoalsList[i+48]
     }
-    if(goals[i+12] > 0){
-      goals[i+57].value = allGoalsList[i+12]
-    }
-    if(goals[i+21] > 0){
-      goals[i+57].value = allGoalsList[i+21]
-    }
-    if(goals[i+30] > 0){
-      goals[i+57].value = allGoalsList[i+30]
-    }
-    if(goals[i+39] > 0){
+    if(goals[i+39]){
       goals[i+57].value = allGoalsList[i+39]
     }
-    if(goals[i+48] > 0){
-      goals[i+57].value = allGoalsList[i+48]
+    if(goals[i+30]){
+      goals[i+57].value = allGoalsList[i+30]
+    }
+    if(goals[i+21]){
+      goals[i+57].value = allGoalsList[i+21]
+    }
+    if(goals[i+12]){
+      goals[i+57].value = allGoalsList[i+12]
+    }
+    if(goals[i+3]){
+      goals[i+57].value = allGoalsList[i+3]
+    } 
+  }
+
+  for(let i = 0; i < 3; i++){ 
+    if(acomplishments[i+48]){
+      acomplishments[i+57].value = allAcomplishmentsList[i+48]
+    }
+    if(acomplishments[i+39]){
+      acomplishments[i+57].value = allAcomplishmentsList[i+39]
+    }
+    if(acomplishments[i+30]){
+      acomplishments[i+57].value = allAcomplishmentsList[i+30]
+    }
+    if(acomplishments[i+21]){
+      acomplishments[i+57].value = allAcomplishmentsList[i+21]
+    }
+    if(acomplishments[i+12]){
+      acomplishments[i+57].value = allAcomplishmentsList[i+12]
+    }
+    if(acomplishments[i+3]){
+      acomplishments[i+57].value = allAcomplishmentsList[i+3]
+    }        
   }
 }
-
 
 
 
@@ -265,7 +286,7 @@ function showMonthGoalsAcomplishments(numberOfGoals, allGoalsList, allAcomplishm
       }
 
     if(acomplishmentPercentage){
-      allAcomplishmentOutputs[i].innerHTML = `${acomplishmentPercentage.toFixed(2)}%`   
+      allAcomplishmentOutputs[i].innerHTML = `${acomplishmentPercentage.toFixed(0)}%`   
       changeOutputColor(allAcomplishmentOutputs[i], acomplishmentPercentage);   
       } else{
         allAcomplishmentOutputs[i].innerHTML = `-`
@@ -358,6 +379,7 @@ function generateResults(){
   let alertAnswer = saveAlert();
   if(alertAnswer){
     calculateTotals();
+    calculateFinalLines();
     const allGoalsListUpdated = allGoals();
     const allAcomplishmentsListUpdated = allAcomplishments();  
     const linesDoneList = calculateLinesDone(numberOfGoals, allGoalsListUpdated, allAcomplishmentsListUpdated)
@@ -374,5 +396,5 @@ function generateResults(){
     finalValueOutput.innerHTML = finalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});   
 
     saveProfileData();    
-  }
+  }  
 }

@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="shortcut icon" href="assets/icons/icon.png" type="image/x-icon">
+  
   <link rel="stylesheet" href="assets/css/normalize.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/header.css">
@@ -18,44 +19,44 @@
 
   <header class="header">
     <h1 class="header__title">Simulador Mais Certo</h1>
-    <nav class="header__nav">
-      <p class="header__info">Exibir/Ocultar blocos</p>
+    <nav class="header__nav">      
+      <p class="header__info">Exibir/Ocultar blocos</p>       
       <ul class="nav__ul">
         <li class="nav__li">Mês 1
-          <div class="nav__links">
-            <a href="#" class="nav__link-plus">&#43</a>
-            <a href="#" class="nav__link-minus">&#8722</a>
-          </div>
+          <ul class="nav__links">
+            <li class="nav__link-plus  nav__links-hide" id="nav__link-plus-01">&#43</li>
+            <li class="nav__link-minus" id="nav__link-minus-01">&#8722</li>
+          </ul>
         </li>
         <li class="nav__li">Mês 2
-          <div class="nav__links">
-            <a href="#" class="nav__link-plus">&#43</a>
-            <a href="#" class="nav__link-minus">&#8722</a>
-          </div>
+          <ul class="nav__links">
+            <li class="nav__link-plus" id="nav__link-plus-02">&#43</li>
+            <li class="nav__link-minus nav__links-hide" id="nav__link-minus-02">&#8722</li>
+          </ul>
         </li>
         <li class="nav__li">Mês 3
-          <div class="nav__links">
-            <a href="#" class="nav__link-plus">&#43</a>
-            <a href="#" class="nav__link-minus">&#8722</a>
-          </div>
+          <ul class="nav__links">
+            <li class="nav__link-plus" id="nav__link-plus-03">&#43</li>
+            <li class="nav__link-minus nav__links-hide" id="nav__link-minus-03">&#8722</li>
+          </ul>
         </li>
         <li class="nav__li">Mês 4
-          <div class="nav__links">
-            <a href="#" class="nav__link-plus">&#43</a>
-            <a href="#" class="nav__link-minus">&#8722</a>
-          </div>
+          <ul class="nav__links">
+            <li class="nav__link-plus" id="nav__link-plus-04">&#43</li>
+            <li class="nav__link-minus nav__links-hide" id="nav__link-minus-04">&#8722</li>
+          </ul>
         </li>
         <li class="nav__li">Mês 5
-          <div class="nav__links">
-            <a href="#" class="nav__link-plus">&#43</a>
-            <a href="#" class="nav__link-minus">&#8722</a>
-          </div>
+          <ul class="nav__links">
+            <li class="nav__link-plus" id="nav__link-plus-05">&#43</li>
+            <li class="nav__link-minus nav__links-hide" id="nav__link-minus-05">&#8722</li>
+          </ul>
         </li>
         <li class="nav__li">Mês 6
-          <div class="nav__links">
-            <a href="#" class="nav__link-plus">&#43</a>
-            <a href="#" class="nav__link-minus">&#8722</a>
-          </div>
+          <ul class="nav__links">
+            <li class="nav__link-plus" id="nav__link-plus-06">&#43</li>
+            <li class="nav__link-minus nav__links-hide" id="nav__link-minus-06">&#8722</li>
+          </ul>
         </li>
       </ul>
     </nav>  
@@ -78,17 +79,17 @@
     <h2 class="input__title">Faça Sua Simulação Abaixo:</h2>
     <section class="input">
       
-      <article class="card">        
+      <article class="card" id="card-01">        
         <h3 class="card-header__title">Mês 1</h3>        
         <h4 class="card-header__name">Nome da Linha</h4>
         <h4 class="card-header__goal">Meta</h4>
         <h4 class="card-header__done">Realizado</h4>
         <h4 class="card-header__done-percentage">% Real.</h4>          
         
-        <span class="card-body__name">Margem de Credito</span>
+        <span class="card-body__name">Margem Credito</span>
         <input class="card-body__goal" type="number">
         <input class="card-body__done" type="number">
-        <span class="card-body__done-percentage" id="doneOutputM1G1"></span>
+        <span class="card-body__done-percentage"></span>
 
         <span class="card-body__name">Total MOL</span>
         <input class="card-body__goal" type="number">
@@ -134,14 +135,14 @@
               
       </article>
 
-      <article class="card">        
+      <article class="card card-hide" id="card-02">        
         <h3 class="card-header__title">Mês 2</h3>        
         <h4 class="card-header__name">Nome</h4>
         <h4 class="card-header__goal">Meta</h4>
         <h4 class="card-header__done">Realizado</h4>
         <h4 class="card-header__done-percentage">% Real.</h4>          
         
-        <span class="card-body__name">Margem de Crédito</span>
+        <span class="card-body__name">Margem Crédito</span>
         <input class="card-body__goal" type="number">
         <input class="card-body__done" type="number">
         <span class="card-body__done-percentage"></span>
@@ -190,14 +191,14 @@
               
       </article>
 
-      <article class="card">        
+      <article class="card card-hide" id="card-03">        
         <h3 class="card-header__title">Mês 3</h3>        
         <h4 class="card-header__name">Nome</h4>
         <h4 class="card-header__goal">Meta</h4>
         <h4 class="card-header__done">Realizado</h4>
         <h4 class="card-header__done-percentage">% Real.</h4>          
         
-        <span class="card-body__name">Margem de Credito</span>
+        <span class="card-body__name">Margem Credito</span>
         <input class="card-body__goal" type="number">
         <input class="card-body__done" type="number">
         <span class="card-body__done-percentage" id="doneOutputM1G1"></span>
@@ -246,14 +247,14 @@
               
       </article>
 
-      <article class="card">        
+      <article class="card card-hide" id="card-04">        
         <h3 class="card-header__title">Mês 4</h3>        
         <h4 class="card-header__name">Nome</h4>
         <h4 class="card-header__goal">Meta</h4>
         <h4 class="card-header__done">Realizado</h4>
         <h4 class="card-header__done-percentage">% Real.</h4>          
         
-        <span class="card-body__name">Margem de Credito</span>
+        <span class="card-body__name">Margem Credito</span>
         <input class="card-body__goal" type="number">
         <input class="card-body__done" type="number">
         <span class="card-body__done-percentage" id="doneOutputM1G1"></span>
@@ -302,14 +303,14 @@
               
       </article>
 
-      <article class="card">        
+      <article class="card card-hide" id="card-05">        
         <h3 class="card-header__title">Mês 5</h3>        
         <h4 class="card-header__name">Nome</h4>
         <h4 class="card-header__goal">Meta</h4>
         <h4 class="card-header__done">Realizado</h4>
         <h4 class="card-header__done-percentage">% Real.</h4>          
         
-        <span class="card-body__name">Margem de Credito</span>
+        <span class="card-body__name">Margem Credito</span>
         <input class="card-body__goal" type="number">
         <input class="card-body__done" type="number">
         <span class="card-body__done-percentage" id="doneOutputM1G1"></span>
@@ -358,14 +359,14 @@
               
       </article>
 
-      <article class="card">        
+      <article class="card card-hide" id="card-06">        
         <h3 class="card-header__title">Mês 6</h3>        
         <h4 class="card-header__name">Nome</h4>
         <h4 class="card-header__goal">Meta</h4>
         <h4 class="card-header__done">Realizado</h4>
         <h4 class="card-header__done-percentage">% Real.</h4>          
         
-        <span class="card-body__name">Margem de Credito</span>
+        <span class="card-body__name">Margem Credito</span>
         <input class="card-body__goal" type="number">
         <input class="card-body__done" type="number">
         <span class="card-body__done-percentage" id="doneOutputM1G1"></span>
@@ -421,7 +422,7 @@
         <h4 class="card-header__done">Realizado</h4>
         <h4 class="card-header__done-percentage">% Real.</h4>          
         
-        <span class="card-body__name">Margem de Credito</span>
+        <span class="card-body__name">Margem Credito</span>
         <input class="card-body__goal" type="number" readonly>
         <input class="card-body__done" type="number" readonly>
         <span class="card-body__done-percentage"></span>
@@ -525,4 +526,5 @@
   
 </body>
   <script src="assets/javascript/main.js"></script>
+  <script src="assets/javascript/efects.js"></script>
 </html>

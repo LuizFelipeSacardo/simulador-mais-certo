@@ -2,6 +2,7 @@
   background-color: var(--background-color-02);
   height: 60px;
   border-radius: 5px;
+  max-width: 840px;
 }
 
 .footer__info, .footer__contact{
@@ -22,7 +23,6 @@
 
 @media screen and (min-width:480px) {
   .footer{
-    max-width: 960px;
     margin: auto;
     height: 100px;    
   }
