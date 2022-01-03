@@ -225,44 +225,46 @@ function calculateFinalLines(){
   const allGoalsList = allGoals();
   const allAcomplishmentsList = allAcomplishments();
 
+  console.log(allGoalsList)
+
   for(let i = 0; i < 3; i++){ 
-    if(goals[i+48]){
-      goals[i+57].value = allGoalsList[i+48]
+    if(allGoalsList[i+48] > 0){
+      goals[i+57].value = allGoalsList[i+48]      
     }
-    if(goals[i+39]){
-      goals[i+57].value = allGoalsList[i+39]
+    if(allGoalsList[i+39] > 0){
+      goals[i+57].value = allGoalsList[i+39]      
     }
-    if(goals[i+30]){
-      goals[i+57].value = allGoalsList[i+30]
+    if(allGoalsList[i+30] > 0){
+      goals[i+57].value = allGoalsList[i+30]      
     }
-    if(goals[i+21]){
-      goals[i+57].value = allGoalsList[i+21]
+    if(allGoalsList[i+21] > 0){
+      goals[i+57].value = allGoalsList[i+21]      
     }
-    if(goals[i+12]){
-      goals[i+57].value = allGoalsList[i+12]
+    if(allGoalsList[i+12] > 0){
+      goals[i+57].value = allGoalsList[i+12]      
     }
-    if(goals[i+3]){
-      goals[i+57].value = allGoalsList[i+3]
+    if(allGoalsList[i+3] > 0){
+      goals[i+57].value = allGoalsList[i+3]      
     } 
   }
 
   for(let i = 0; i < 3; i++){ 
-    if(acomplishments[i+48]){
+    if(allAcomplishmentsList[i+48] > 0){
       acomplishments[i+57].value = allAcomplishmentsList[i+48]
     }
-    if(acomplishments[i+39]){
+    if(allAcomplishmentsList[i+39] > 0){
       acomplishments[i+57].value = allAcomplishmentsList[i+39]
     }
-    if(acomplishments[i+30]){
+    if(allAcomplishmentsList[i+30] > 0){
       acomplishments[i+57].value = allAcomplishmentsList[i+30]
     }
-    if(acomplishments[i+21]){
+    if(allAcomplishmentsList[i+21]> 0){
       acomplishments[i+57].value = allAcomplishmentsList[i+21]
     }
-    if(acomplishments[i+12]){
+    if(allAcomplishmentsList[i+12]> 0){
       acomplishments[i+57].value = allAcomplishmentsList[i+12]
     }
-    if(acomplishments[i+3]){
+    if(allAcomplishmentsList[i+3] > 0){
       acomplishments[i+57].value = allAcomplishmentsList[i+3]
     }        
   }
